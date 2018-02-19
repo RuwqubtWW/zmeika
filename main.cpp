@@ -13,25 +13,25 @@ eDirection dir;
 
 void Setup() {
 	gameOver = false;
-	dir = STOP;
+	dir = Stop;
 	x = area_width / 2;
 	y = area_height / 2;
-	FruitX = rand() % width;
-	FruitX = rand() % height;
+	FruitX = rand() % area_width;
+	FruitX = rand() % area_height;
 	score = 0;
 }
 
 
 void Draw() {
 	system("cls");
-	for (int i = 0; i < width; i++)
+	for (int i = 0; i < area_width; i++)
 		cout << "#";
 	cout << endl;
 
-	for (int i = 0; i < height; i++)
-		for (int j = 0; j < width; j++)
+	for (int i = 0; i < area_height; i++)
+		for (int j = 0; j < area_width; j++)
 
-	for (int i = 0; i < width; i++)
+	for (int i = 0; i < area_width; i++)
 		cout << "#";
 	cout << endl;
 }
@@ -44,6 +44,9 @@ void Logic() {
 
 }
 
+void Exit() {
+	gameOver = true;
+}
 
 int main() {
 	Setup();
@@ -52,5 +55,6 @@ int main() {
 		Input();
 		Logic();
 	}
+	Exit();
 	return 0;
 }
